@@ -1,0 +1,64 @@
+---
+title       : Data products
+subtitle    : Exploring CO2 dataset 
+author      : Andrew Sila, Data Science course learner
+job         : Nairobi, Kenya
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [mathjax]            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Exploring CO2 dataset
+
+1. View the data 
+2. Using a boxplot
+3. Anova
+
+--- .class #id 
+
+====
+## View data
+1. Start by reading in the CO2 dataset
+2. Give the number of observation to be viewed in th header.
+3. We set six as the default number to view in the app.
+```{r,echo=TRUE}
+data(CO2)
+head(CO2)
+```
+
+--- .class #id 
+
+===
+
+## Boxplot
+1. Visualize the CO2 dataset with a boxplot
+2. Plant co2 uptake can be viewed versus: Type, Treatment and conc 
+
+```{r,echo=TRUE}
+data(CO2)
+with(CO2, boxplot(uptake~conc,col="blue",ylab="Co2 uptake",xlab="conc"))
+```
+
+--- .class #id 
+
+===
+
+## Anova
+
+Test for significance of each of the three experiment factors:
+    1. Type
+    2. Treatment
+    3. conc
+
+### Testing for conc illustrated.
+```{r,echo=TRUE}
+data(CO2)
+with(CO2, aov(uptake~conc))
+```
+
+
+
+
